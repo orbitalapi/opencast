@@ -234,13 +234,4 @@
         <packageUrl regex="true">^pkg:maven/org\.elasticsearch(?:/(?:elasticsearch|elasticsearch-cli|elasticsearch-core|elasticsearch-geo|elasticsearch-lz4|elasticsearch-plugin-classloader|elasticsearch-secure-sm|elasticsearch-x-content)|\.client/(?:elasticsearch-rest-client|elasticsearch-rest-high-level-client)|\.plugin/(?:aggs-matrix-stats-client|lang-mustache-client|mapper-extras-client|parent-join-client|rank-eval-client))@7\.17\.29$</packageUrl>
         <cve>CVE-2025-37731</cve>
     </suppress>
-    <suppress>
-        <notes><![CDATA[
-        Parquet 1.17.1 shades Jackson Databind 2.21.3, so dependency management cannot replace these classes.
-        Hazelcast does not configure Jackson polymorphic typing or the affected subtype validators. Suppress until Parquet shades Jackson 2.21.4 or later.
-        ]]></notes>
-        <packageUrl regex="true">^pkg:maven/com\.fasterxml\.jackson\.core/jackson-databind@2\.21\.3$</packageUrl>
-        <cve>CVE-2026-54512</cve>
-        <cve>CVE-2026-54513</cve>
-    </suppress>
 </suppressions>
