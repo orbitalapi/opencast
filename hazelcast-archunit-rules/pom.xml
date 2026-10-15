@@ -23,7 +23,7 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>com.hazelcast</groupId>
+        <groupId>com.orbitalhq.opencast</groupId>
         <artifactId>hazelcast-root</artifactId>
         <version>5.7.0</version>
         <relativePath>../pom.xml</relativePath>

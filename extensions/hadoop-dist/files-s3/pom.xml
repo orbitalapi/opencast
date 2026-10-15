@@ -28,7 +28,7 @@
 
     <parent>
         <artifactId>hazelcast-jet-hadoop-dist</artifactId>
-        <groupId>com.hazelcast.jet</groupId>
+        <groupId>com.orbitalhq.opencast.jet</groupId>
         <version>5.7.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>

@@ -23,7 +23,7 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>com.hazelcast</groupId>
+        <groupId>com.orbitalhq.opencast</groupId>
         <artifactId>hazelcast-spring-boot-autoconfiguration</artifactId>
         <version>5.7.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -38,7 +38,7 @@
         <dependencies>
             <!-- explicitly redeclare the parent to avoid any of the Spring dependencies overwriting anything we've explicitly managed -->
             <dependency>
-                <groupId>com.hazelcast</groupId>
+                <groupId>com.orbitalhq.opencast</groupId>
                 <artifactId>hazelcast-parent</artifactId>
                 <version>${project.parent.version}</version>
                 <type>pom</type>
@@ -84,13 +84,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-spring</artifactId>
             <version>${project.parent.version}</version>
             <exclusions>
                 <!-- for dependency convergence -->
                 <exclusion>
-                    <groupId>com.hazelcast</groupId>
+                    <groupId>com.orbitalhq.opencast</groupId>
                     <artifactId>hazelcast</artifactId>
                 </exclusion>
             </exclusions>
@@ -104,6 +104,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-hazelcast</artifactId>
             <scope>provided</scope>
+            <exclusions>
+                <!-- upstream Hazelcast core; replaced by com.orbitalhq.opencast:hazelcast -->
+                <exclusion>
+                    <groupId>com.hazelcast</groupId>
+                    <artifactId>hazelcast</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- test -->

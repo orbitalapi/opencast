@@ -23,7 +23,7 @@
     <packaging>pom</packaging>
 
     <parent>
-        <groupId>com.hazelcast</groupId>
+        <groupId>com.orbitalhq.opencast</groupId>
         <artifactId>hazelcast-root</artifactId>
         <version>5.7.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -103,21 +103,21 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
         <!--TEST DEPENDENCIES-->
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>
             <classifier>tests</classifier>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-spring-tests</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>
@@ -130,7 +130,7 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-archunit-rules</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.hazelcast</groupId>
+        <groupId>com.orbitalhq.opencast</groupId>
         <artifactId>hazelcast-it</artifactId>
         <version>5.7.0</version>
     </parent>
@@ -26,7 +26,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -35,6 +35,13 @@
             <artifactId>hazelcast-hibernate53</artifactId>
             <version>${hazelcast-hibernate53.version}</version>
             <scope>test</scope>
+            <exclusions>
+                <!-- upstream Hazelcast core; replaced by com.orbitalhq.opencast:hazelcast -->
+                <exclusion>
+                    <groupId>com.hazelcast</groupId>
+                    <artifactId>hazelcast</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -72,7 +79,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
@@ -96,7 +103,7 @@
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.hazelcast</groupId>
+                                    <groupId>com.orbitalhq.opencast</groupId>
                                     <artifactId>hazelcast-distribution</artifactId>
                                     <version>${project.version}</version>
                                     <type>zip</type>
@@ -113,7 +120,7 @@
                 </executions>
                 <dependencies>
                     <dependency>
-                        <groupId>com.hazelcast</groupId>
+                        <groupId>com.orbitalhq.opencast</groupId>
                         <artifactId>hazelcast-distribution</artifactId>
                         <version>${project.version}</version>
                         <type>zip</type>

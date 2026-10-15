@@ -23,7 +23,7 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>com.hazelcast</groupId>
+        <groupId>com.orbitalhq.opencast</groupId>
         <artifactId>hazelcast-root</artifactId>
         <version>5.7.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -53,13 +53,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-spring</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>
@@ -78,7 +78,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast</artifactId>
             <scope>test</scope>
             <version>${project.parent.version}</version>
@@ -101,6 +101,13 @@
             <artifactId>hazelcast-hibernate53</artifactId>
             <version>${hazelcast-hibernate53.version}</version>
             <scope>test</scope>
+            <exclusions>
+                <!-- upstream Hazelcast core; replaced by com.orbitalhq.opencast:hazelcast -->
+                <exclusion>
+                    <groupId>com.hazelcast</groupId>
+                    <artifactId>hazelcast</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.hibernate.orm</groupId>
@@ -184,6 +191,13 @@
                     <artifactId>spring-boot-hazelcast</artifactId>
                     <version>${spring.boot4.version}</version>
                     <scope>test</scope>
+                    <exclusions>
+                        <!-- upstream Hazelcast core; replaced by com.orbitalhq.opencast:hazelcast -->
+                        <exclusion>
+                            <groupId>com.hazelcast</groupId>
+                            <artifactId>hazelcast</artifactId>
+                        </exclusion>
+                    </exclusions>
                 </dependency>
             </dependencies>
         </profile>

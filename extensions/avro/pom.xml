@@ -28,7 +28,7 @@
     <artifactId>hazelcast-jet-avro</artifactId>
 
     <parent>
-        <groupId>com.hazelcast.jet</groupId>
+        <groupId>com.orbitalhq.opencast.jet</groupId>
         <artifactId>hazelcast-jet-extensions</artifactId>
         <version>5.7.0</version>
     </parent>

@@ -21,7 +21,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.hazelcast</groupId>
+    <groupId>com.orbitalhq.opencast</groupId>
     <artifactId>hazelcast-mapstore</artifactId>
 
     <packaging>jar</packaging>
@@ -30,7 +30,7 @@
     <url>http://www.hazelcast.com/</url>
 
     <parent>
-        <groupId>com.hazelcast.jet</groupId>
+        <groupId>com.orbitalhq.opencast.jet</groupId>
         <artifactId>hazelcast-jet-extensions</artifactId>
         <version>5.7.0</version>
     </parent>
@@ -57,7 +57,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-sql</artifactId>
             <version>${project.parent.version}</version>
             <scope>provided</scope>
@@ -65,7 +65,7 @@
 
         <!-- Test dependencies -->
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-sql</artifactId>
             <version>${project.parent.version}</version>
             <type>test-jar</type>
@@ -141,7 +141,7 @@
 
         <!-- MongoDB -->
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-mongodb</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>

@@ -19,7 +19,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>hazelcast-root</artifactId>
-        <groupId>com.hazelcast</groupId>
+        <groupId>com.orbitalhq.opencast</groupId>
         <version>5.7.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -74,217 +74,217 @@
              IMPORTANT NOTE: The above script must be run with the same JDK version as sonar build.
         -->
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-parent</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-root</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-archunit-rules</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-tpc-engine</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-spring</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-spring-tests</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-build-utils</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-extensions</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-avro</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-kafka</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-csv</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-hadoop-core</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-sql</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>modulepath-tests</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-cdc-debezium</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-cdc-mysql</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-cdc-postgres</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-elasticsearch-7</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-hadoop-dist</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-files-azure</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-files-gcs</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-files-s3</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-hadoop</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-hadoop-all</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-kafka-connect</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-kinesis</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-mongodb</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-mapstore</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-s3</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-grpc</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-protobuf</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.orbitalhq.opencast.jet</groupId>
             <artifactId>hazelcast-jet-python</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-distribution</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-it</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>distribution-it</artifactId>
             <version>${project.version}</version>
             <type>pom</type>

@@ -28,7 +28,7 @@
     <artifactId>hazelcast-jet-elasticsearch-7</artifactId>
 
     <parent>
-        <groupId>com.hazelcast.jet</groupId>
+        <groupId>com.orbitalhq.opencast.jet</groupId>
         <artifactId>hazelcast-jet-extensions</artifactId>
         <version>5.7.0</version>
         <relativePath>../../pom.xml</relativePath>

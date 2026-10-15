@@ -29,7 +29,7 @@
     <url>http://www.hazelcast.com/</url>
 
     <parent>
-        <groupId>com.hazelcast.jet</groupId>
+        <groupId>com.orbitalhq.opencast.jet</groupId>
         <artifactId>hazelcast-jet-extensions</artifactId>
         <version>5.7.0</version>
     </parent>
@@ -76,7 +76,7 @@
                             </relocations>
                             <artifactSet>
                                 <includes>
-                                    <include>com.hazelcast.jet:hazelcast-jet-mongodb</include>
+                                    <include>com.orbitalhq.opencast.jet:hazelcast-jet-mongodb</include>
                                 </includes>
                                 <excludes>
                                     <exclude>com.mongodb:*</exclude>
@@ -104,7 +104,7 @@
                 </executions>
                 <dependencies>
                     <dependency>
-                        <groupId>com.hazelcast</groupId>
+                        <groupId>com.orbitalhq.opencast</groupId>
                         <artifactId>hazelcast-build-utils</artifactId>
                         <version>${project.version}</version>
                     </dependency>
@@ -138,7 +138,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-sql</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
@@ -172,14 +172,14 @@
         </dependency>
 
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast-sql</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.orbitalhq.opencast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
