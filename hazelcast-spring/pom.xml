@@ -44,6 +44,15 @@
                 <targetPath>${project.build.outputDirectory}</targetPath>
             </resource>
         </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <!-- Hazelcast Community License XSDs: test classpath only, never packaged (see src/hcl-xsd/README.md) -->
+            <testResource>
+                <directory>src/hcl-xsd</directory>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.felix</groupId>

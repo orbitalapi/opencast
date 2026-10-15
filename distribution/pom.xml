@@ -30,6 +30,8 @@
     <packaging>jar</packaging>
 
     <properties>
+        <!-- Not published: bundles Hazelcast Community License modules -->
+        <maven.deploy.skip>true</maven.deploy.skip>
         <configs.from.jar>${project.build.directory}/config</configs.from.jar>
         <main.basedir>${project.parent.basedir}</main.basedir>
         <prometheus.version>0.20.0</prometheus.version>

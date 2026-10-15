@@ -32,6 +32,8 @@
     </parent>
 
     <properties>
+        <!-- Not published: build and test infrastructure only -->
+        <maven.deploy.skip>true</maven.deploy.skip>
         <!-- needed for CheckStyle -->
         <main.basedir>${project.parent.basedir}</main.basedir>
     </properties>

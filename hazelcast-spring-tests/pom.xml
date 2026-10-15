@@ -30,11 +30,22 @@
     </parent>
 
     <properties>
+        <!-- Not published: build and test infrastructure only -->
+        <maven.deploy.skip>true</maven.deploy.skip>
         <!-- needed for CheckStyle -->
         <main.basedir>${project.parent.basedir}</main.basedir>
     </properties>
 
     <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <!-- Hazelcast Community License XSDs: test classpath only, never packaged (see src/hcl-xsd/README.md) -->
+            <testResource>
+                <directory>${project.basedir}/../hazelcast-spring/src/hcl-xsd</directory>
+            </testResource>
+        </testResources>
         <plugins>
 
             <plugin>

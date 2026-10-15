@@ -28,6 +28,8 @@
     <artifactId>hazelcast-coverage-report</artifactId>
 
     <properties>
+        <!-- Not published: build and test infrastructure only -->
+        <maven.deploy.skip>true</maven.deploy.skip>
         <!-- needed for CheckStyle -->
         <main.basedir>${project.basedir}/..</main.basedir>
     </properties>

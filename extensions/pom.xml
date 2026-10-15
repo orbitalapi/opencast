@@ -67,6 +67,8 @@
     </profiles>
 
     <properties>
+        <!-- Not published: Hazelcast Community License (see extensions/NOTICE) -->
+        <maven.deploy.skip>true</maven.deploy.skip>
         <argLine> <!-- surefire parameters -->
             -Xmx1G
             -Xms1G

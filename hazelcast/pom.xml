@@ -188,6 +188,11 @@
                         <configuration>
                             <excludes>
                                 <exclude>**/*.serialization.compatibility.binary</exclude>
+                                <!-- Hazelcast Community License test resources, not redistributed -->
+                                <exclude>aws/test-aws-config*.xml</exclude>
+                                <exclude>azure/test-azure-config*.xml</exclude>
+                                <exclude>gcp/test-gcp-config*.xml</exclude>
+                                <exclude>META-INF/maven/com.orbitalhq.opencast/hazelcast-tpc-engine/**</exclude>
                             </excludes>
                         </configuration>
                     </execution>
@@ -289,6 +294,13 @@
                                     <artifact>com.github.erosb:*</artifact>
                                     <excludes>
                                         <exclude>META-INF/MANIFEST.MF</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <!-- the tpc-engine pom.xml carries a Hazelcast Community License header; its code is Apache -->
+                                    <artifact>com.orbitalhq.opencast:hazelcast-tpc-engine</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/maven/**</exclude>
                                     </excludes>
                                 </filter>
                                 <filter>
