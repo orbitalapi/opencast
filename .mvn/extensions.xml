@@ -5,4 +5,9 @@
         <artifactId>maven-buildtime-extension</artifactId>
         <version>3.0.5</version>
     </extension>
+    <extension>
+        <groupId>io.github.michaelboyles</groupId>
+        <artifactId>s3-maven-extension</artifactId>
+        <version>0.6.0</version>
+    </extension>
 </extensions>

@@ -181,14 +181,15 @@
         <public.api.check.break.build>true</public.api.check.break.build>
     </properties>
 
+    <!-- Deployed via the s3-maven-extension (.mvn/extensions.xml), using the default AWS credentials chain -->
     <distributionManagement>
         <repository>
-            <id>private-repository</id>
-            <url>https://repository.hazelcast.com/release</url>
+            <id>repo.orbitalhq.com</id>
+            <url>s3://repo.orbitalhq.com/release</url>
         </repository>
         <snapshotRepository>
-            <id>private-repository</id>
-            <url>https://repository.hazelcast.com/snapshot</url>
+            <id>repo.orbitalhq.com</id>
+            <url>s3://repo.orbitalhq.com/snapshot</url>
         </snapshotRepository>
     </distributionManagement>
 
