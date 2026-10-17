@@ -101,3 +101,5 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          # repo.orbitalhq.com is in eu-west-2, as in vyne's deploy.
+          AWS_REGION: eu-west-2
