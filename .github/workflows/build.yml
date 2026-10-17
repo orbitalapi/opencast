@@ -44,6 +44,13 @@ jobs:
     if: needs.gate.outputs.build == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 240
+    env:
+      # Retry dependency downloads on Maven Central gateway errors, as well as on the
+      # default 429 and 503.
+      MVN_CI_ARGS: >-
+        -B -ntp
+        -Daether.connector.http.retryHandler.count=5
+        -Daether.connector.http.retryHandler.serviceUnavailable=429,500,502,503,504
 
     steps:
       - uses: actions/checkout@v5
@@ -55,18 +62,25 @@ jobs:
           cache: maven
 
       - name: Build
-        run: ./mvnw clean install -B -ntp -DskipTests
+        run: ./mvnw clean install $MVN_CI_ARGS -DskipTests
 
       # Tests for the published (Apache-licensed) modules, using the same profile as
       # upstream's PR builder: ParallelJVMTest, excluding SlowTest and NightlyTest.
+      # GitHub's runners are Azure VMs, so the cloud discovery auto-detection in the tests
+      # calls the Azure instance metadata service, which throttles the parallel test JVMs
+      # (HTTP 429, "Failed to configure discovery strategies"). Blocking it makes
+      # detection fail fast, as it does off-cloud.
+      - name: Block cloud instance metadata service
+        run: sudo iptables -I OUTPUT -d 169.254.169.254 -j REJECT
+
       - name: Test
         run: >
-          ./mvnw test -B -ntp -PparallelTest
+          ./mvnw test $MVN_CI_ARGS -PparallelTest
           -pl hazelcast,hazelcast-spring,hazelcast-spring-tests,hazelcast-spring-boot-autoconfiguration/hazelcast-spring-boot3,hazelcast-spring-boot-autoconfiguration/hazelcast-spring-boot4
 
       - name: Upload test reports
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: surefire-reports
           path: '**/target/surefire-reports/'
@@ -83,7 +97,7 @@ jobs:
             # Sources and javadoc jars. The S3 repository does not require signatures.
             PROFILE_ARGS="-Prelease -Dgpg.skip=true"
           fi
-          ./mvnw deploy -B -ntp -DskipTests -Dmaven.artifact.threads=16 ${PROFILE_ARGS:-}
+          ./mvnw deploy $MVN_CI_ARGS -DskipTests -Dmaven.artifact.threads=16 ${PROFILE_ARGS:-}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
