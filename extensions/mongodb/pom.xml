@@ -31,7 +31,7 @@
     <parent>
         <groupId>com.orbitalhq.opencast.jet</groupId>
         <artifactId>hazelcast-jet-extensions</artifactId>
-        <version>5.7.0-opencast-1-SNAPSHOT</version>
+        <version>5.7.0-opencast-1</version>
     </parent>
 
     <properties>

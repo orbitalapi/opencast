@@ -23,7 +23,7 @@
     <groupId>com.orbitalhq.opencast</groupId>
     <artifactId>hazelcast-parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.7.0-opencast-1-SNAPSHOT</version>
+    <version>5.7.0-opencast-1</version>
 
     <name>Hazelcast Parent POM</name>
     <description>Provides a base configuration for Hazelcast Platform builds</description>
