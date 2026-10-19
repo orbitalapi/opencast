@@ -83,7 +83,8 @@ echo "🔧 Setting Maven version to ${VERSION}"
 set_version "${VERSION}"
 
 echo "🔍 Checking for SNAPSHOT versions..."
-if git grep -n -- '-SNAPSHOT</version>' -- '*pom.xml'; then
+# Build poms only: sample projects under src/ (e.g. test resources) aren't modules.
+if git grep -n -- '-SNAPSHOT</version>' -- '*pom.xml' ':(exclude)**/src/**'; then
   echo "❌ SNAPSHOT versions remain (listed above). Fix them before releasing."
   git checkout -- .
   exit 1
