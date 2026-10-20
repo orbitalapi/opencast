@@ -1,3 +1,126 @@
+# Opencast
+
+Opencast is a fork of the brilliant [Hazelcast](https://hazelcast.com), for releasing patched versions of the open-source edition of Hazelcast.
+
+Hazelcast [announced in 2024](https://hazelcast.com/blog/changes-to-community-edition/) that they'd no longer provide CVE patches for their open-source releases.
+
+That's entirely their prerogative. After all, they've gotta make money.
+
+However, the net result is that Hazelcast OSS remains unpatched, often for months on end.
+
+This fork is maintained by [Orbital](https://orbitalhq.com), a data integration and context layer platform.
+
+We're big users of Hazelcast, and we run Opencast in our own platform. We're dogfooding it: every release goes into Orbital's own build and test suite before it ships.
+
+## Using Opencast
+
+Opencast is a drop-in replacement for the matching Hazelcast release. Only the Maven `groupId` changes. Package names (`com.hazelcast.*`), configuration and XML namespaces are the same as upstream, so no code changes are needed.
+
+Releases are published to Orbital's Maven repository, not Maven Central:
+
+```xml
+<repositories>
+   <repository>
+      <id>orbital</id>
+      <url>https://repo.orbitalhq.com/release</url>
+   </repository>
+</repositories>
+
+<dependencies>
+   <dependency>
+      <groupId>com.orbitalhq.opencast</groupId>
+      <artifactId>hazelcast</artifactId>
+      <version>5.7.0-opencast-1</version>
+   </dependency>
+</dependencies>
+```
+
+Gradle:
+
+```kotlin
+repositories {
+    maven("https://repo.orbitalhq.com/release")
+}
+
+dependencies {
+    implementation("com.orbitalhq.opencast:hazelcast:5.7.0-opencast-1")
+}
+```
+
+Snapshots of the next release are at `https://repo.orbitalhq.com/snapshot`.
+
+### Published artifacts
+
+| Artifact | Replaces |
+|---|---|
+| `com.orbitalhq.opencast:hazelcast` | `com.hazelcast:hazelcast` |
+| `com.orbitalhq.opencast:hazelcast-spring` | `com.hazelcast:hazelcast-spring` |
+| `com.orbitalhq.opencast:hazelcast-spring-boot3` | `com.hazelcast:hazelcast-spring-boot3` |
+| `com.orbitalhq.opencast:hazelcast-spring-boot4` | `com.hazelcast:hazelcast-spring-boot4` |
+
+### Don't end up with both
+
+Libraries that depend on Hazelcast will still pull in `com.hazelcast:hazelcast`, and you don't want both jars on the classpath. The common one is Spring Boot's `spring-boot-starter-hazelcast`. Exclude it, and declare Opencast directly:
+
+```xml
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-hazelcast</artifactId>
+   <exclusions>
+      <exclusion>
+         <groupId>com.hazelcast</groupId>
+         <artifactId>hazelcast</artifactId>
+      </exclusion>
+   </exclusions>
+</dependency>
+```
+
+`mvn dependency:tree -Dincludes=com.hazelcast` should come back empty.
+
+## Version numbers
+
+Opencast versions are `<hazelcast version>-opencast-<n>`:
+
+- `5.7.0-opencast-1` is Hazelcast 5.7.0, plus our first set of patches.
+- `5.7.0-opencast-2` would be the next patch release on the same Hazelcast version.
+- When Hazelcast ships a new OSS release, we start again at `-opencast-1` on top of it (e.g. `5.8.0-opencast-1`).
+
+At runtime, members and clients report the upstream version (e.g. `5.7.0`, cluster version `5.7`). That's also why we don't use four-part versions like `5.7.0.1`: Hazelcast parses its own version number, and only accepts `major.minor.patch` with an optional suffix.
+
+## Releases
+
+Each release branch (e.g. `release/5.7`) is cut from the upstream release tag (`v5.7.0`). Releases are tagged on it, and `master` tracks upstream.
+
+| Release | Based on | What's patched |
+|---|---|---|
+| `5.7.0-opencast-1` | Hazelcast 5.7.0 | Backports of the security fixes from Hazelcast's 5.7.1 and 5.7.2 Enterprise releases, where they apply to OSS. Shaded Jackson upgraded to 2.21.7 / 3.1.7, which fixes CVE-2026-54512, CVE-2026-54513, CVE-2026-68497, CVE-2026-91776, CVE-2026-91777 (jackson-databind) and CVE-2026-68494, CVE-2026-89407, CVE-2026-89425 (jackson-core). Netty 4.1.138, Spring 6.2.19 and Tomcat 10.1.61. |
+
+Backports are cherry-picked from upstream where possible (`git cherry-pick -x`), so each commit links back to the original.
+
+## What we will and won't do
+
+- **We patch on a best-efforts basis.** There's no SLA. We maintain this because we need it, and we're sharing it because others probably do too.
+- **We fix HIGH and CRITICAL CVEs.** We're happy to take PRs that fix CVEs of any severity.
+- **We're not fixing bugs**, other than porting CVE fixes. Opencast deliberately stays as close to upstream as possible. Bug reports and feature requests belong with [Hazelcast](https://github.com/hazelcast/hazelcast).
+- **We're only maintaining and releasing the Apache 2.0 modules.** Modules under the [Hazelcast Community License](http://hazelcast.com/hazelcast-community-license), such as `hazelcast-sql` and the Jet extensions, aren't published. Neither are the distribution zip and the Docker images.
+- **We only maintain release lines we use.** Currently that's 5.7.
+
+## Contributing
+
+PRs that fix a CVE are welcome. Where there's an upstream fix, please backport that rather than writing your own, and keep the change as small as possible. Dependency upgrades that fix a CVE are welcome too. Target the release branch (e.g. `release/5.7`).
+
+If you've found a vulnerability in Hazelcast itself, please report it to Hazelcast first, following their [security policy](https://github.com/hazelcast/hazelcast/security/policy).
+
+## Licensing and trademarks
+
+Everything Opencast publishes is under the [Apache License 2.0](LICENSE), the same as the upstream modules it comes from. The repository also contains upstream's Hazelcast Community License source, which we leave in place but don't publish (see [License](#license) below).
+
+Hazelcast is a trademark of Hazelcast, Inc. Opencast isn't affiliated with, or endorsed by, Hazelcast, Inc. The code is theirs; the patches and the bugs we introduce are ours.
+
+---
+
+*The original Hazelcast README follows.*
+
 # Hazelcast
 
 [![Slack](https://img.shields.io/badge/slack-chat-green.svg)](https://slack.hazelcast.com/) 
